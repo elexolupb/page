@@ -63,25 +63,53 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Add active state to navigation links based on scroll position
 window.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('section, .container[id]');
+    // Only apply scroll-based highlighting on the home page
+    if (!window.location.pathname.includes('contact.html') && !window.location.pathname.includes('blog.html')) {
+        const sections = document.querySelectorAll('section, .container[id]');
+        const navLinks = document.querySelectorAll('nav a');
+        
+        let current = '';
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (window.scrollY >= (sectionTop - 200)) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            const href = link.getAttribute('href');
+            if (href === `#${current}` || (current === 'home' && href === 'index.html')) {
+                link.classList.add('active');
+            }
+        });
+    }
+});
+
+// Set active navigation based on current page
+document.addEventListener('DOMContentLoaded', () => {
+    const currentPath = window.location.pathname;
     const navLinks = document.querySelectorAll('nav a');
     
-    let current = '';
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (window.scrollY >= (sectionTop - 200)) {
-            current = section.getAttribute('id');
-        }
-    });
-    
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-        }
-    });
+    // Check if we're on a specific page (not home)
+    if (currentPath.includes('contact.html')) {
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').includes('contact.html')) {
+                link.classList.add('active');
+            }
+        });
+    } else if (currentPath.includes('blog.html')) {
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').includes('blog.html')) {
+                link.classList.add('active');
+            }
+        });
+    }
+    // If on home page, let the scroll listener handle it
 });
 
 // Counter animation for stats

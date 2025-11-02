@@ -69,8 +69,9 @@ nav a {
 }
 
 nav a:hover, nav a.active {
-    background: rgba(255, 0, 153, 0.2);
+    background: rgba(255, 0, 153, 0.3);
     color: var(--primary);
+    font-weight: 600;
 }
 
 /* Hamburger Menu */
@@ -311,6 +312,12 @@ nav a:hover, nav a.active {
 .blog-posts {
     display: grid;
     gap: 2rem;
+}
+
+.blog-post-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
 }
 
 .blog-post {
