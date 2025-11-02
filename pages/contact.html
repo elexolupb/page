@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - ELEXOL-UPB</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        /* Email copy button styling */
+        .email-link {
+            color: var(--secondary);
+            cursor: pointer;
+            text-decoration: underline;
+            transition: color 0.3s;
+        }
+        
+        .email-link:hover {
+            color: var(--primary);
+        }
+
+        /* Notification styling */
+        .copy-notification {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: var(--gradient);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(255, 0, 153, 0.4);
+            z-index: 9999;
+            opacity: 0;
+            transform: translateX(400px);
+            transition: all 0.4s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+        }
+
+        .copy-notification.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .copy-notification .icon {
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="../text_website.png" alt="Solar Racing Team Logo">
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul id="navMenu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../index.html#competition">Competition</a></li>
+                <li><a href="../index.html#team">Team</a></li>
+                <li><a href="../index.html#build">Build Process</a></li>
+                <li><a href="../index.html#blog">Blog</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Copy notification -->
+    <div class="copy-notification" id="copyNotification">
+        <span class="icon">✓</span>
+        <span>Email copied to clipboard!</span>
+    </div>
+
+    <div class="container" style="margin-top: 100px;">
+        <h2 class="section-title">Contact Us</h2>
+        
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div class="contact-details">
+                        <h3>Location</h3>
+                        <p><strong>National University of Science and Technology POLITEHNICA Bucharest</strong><br>
+                        Faculty of Electrical Engineering<br>
+                        Splaiul Independenței 313, București 060042</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <div class="contact-details">
+                        <h3>Email</h3>
+                        <p><span class="email-link" onclick="copyEmail('elexol.upb@gmail.com')">elexol.upb@gmail.com</span></p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <div class="contact-details">
+                        <h3>Phone</h3>
+                        <p>+40 771 796 230 - David-Alexandru Donosa</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">⏰</div>
+                    <div class="contact-details">
+                        <h3>Office Hours</h3>
+                        <p>Monday - Friday: 9:00 AM - 5:00 PM<br>
+                        Saturday - Sunday: Closed</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1594.8161588172293!2d26.045199296682096!3d44.4362780637358!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b201c6fa3be9b9%3A0x7fe519943c75e209!2sFaculty%20of%20Electrical%20Engineering!5e1!3m2!1sen!2sro!4v1762087622344!5m2!1sen!2sro" 
+                    width="400" 
+                    height="300" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+
+        <div style="margin-top: 4rem;">
+            <h2 class="section-title">Get Involved</h2>
+            <div class="cards">
+                <div class="card">
+                    <div class="card-icon">🤝</div>
+                    <h3>Become a Sponsor</h3>
+                    <p>Support our team and help us push the boundaries of solar vehicle technology. Contact us to learn about sponsorship opportunities.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">👨‍🔬</div>
+                    <h3>Join the Team</h3>
+                    <p>Are you a student at UNSTPB? We're always looking for passionate engineers and designers to join our team.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📰</div>
+                    <h3>Media Inquiries</h3>
+                    <p>Press and media representatives can reach out to us for interviews, photos, and project information.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 ELEXOL. We move with the sun.</p>
+            <div class="social-links">
+                <a href="https://facebook.com/elexolupb" target="_blank" title="Facebook">📘</a>
+                <a href="https://instagram.com/elexol.upb" target="_blank" title="Instagram">📷</a>
+                <a href="https://twitter.com/elexolupb" target="_blank" title="Twitter">🐦</a>
+                <a href="https://linkedin.com/company/elexolupb" target="_blank" title="LinkedIn">💼</a>
+                <a href="https://youtube.com/@elexolupb" target="_blank" title="YouTube">🎥</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+        // Function to copy email to clipboard and show notification
+        function copyEmail(email) {
+            // Copy to clipboard
+            navigator.clipboard.writeText(email).then(() => {
+                // Show notification
+                const notification = document.getElementById('copyNotification');
+                notification.classList.add('show');
+                
+                // Hide notification after 3 seconds
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                }, 3000);
+            }).catch(err => {
+                console.error('Failed to copy email: ', err);
+                alert('Email: ' + email);
+            });
+        }
+    </script>
+</body>
+</html>
